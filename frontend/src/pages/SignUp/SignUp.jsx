@@ -17,7 +17,7 @@ const SignUp = () => {
 
     const handleSignUp = async (e) => {
         e.preventDefault();
-    }
+    
 
     if (!firstName || !lastName || !email || !password) {
         setError("Please fill all the fields")
@@ -30,7 +30,7 @@ const SignUp = () => {
     }
     setError("");
     try {
-        const response = await axiosInstance.post('/signup', {
+        const response = await axiosInstance.post('/user/signup', {
             firstName: firstName,
             lastName: lastName,
             email: email,
@@ -50,7 +50,7 @@ const SignUp = () => {
     } catch (error) {
         console.log(error);
     }
-
+    }
     return (
         <>
             <Navbar />
