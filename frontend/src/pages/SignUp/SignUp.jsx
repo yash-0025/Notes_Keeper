@@ -59,20 +59,27 @@ const SignUp = () => {
                 return;
             }
 
-            if (response.data.accessToken) {
-                console.log('Signup successful, setting token...');
-                localStorage.setItem("token", response.data.accessToken);
+            // if (response.data.accessToken) {
+            //     console.log('Signup successful, setting token...');
+            //     localStorage.setItem("token", response.data.accessToken);
                 
                 // Clear form
-                clearForm();
+            //     clearForm();
                 
-                console.log('Navigating to dashboard...');
-                // Force navigation
-                window.location.href = '/dashboard';
-            } else {
-                console.error('No access token in response:', response.data);
-                setError('Signup failed: No access token received');
+            //     console.log('Navigating to dashboard...');
+            //     // Force navigation
+            //     // window.location.href = '/dashboard';
+            //     navigate('/dahboard', {replace : true})
+            // } else {
+            //     console.error('No access token in response:', response.data);
+            //     setError('Signup failed: No access token received');
+            // }
+            if(response.data && !response.data.error) {
+                clearForm();
+                navigate('/login');
+                return;
             }
+            setError(response.data?.message || 'SignUp failed');
         } catch (error) {
             console.error('Signup error:', error);
             setError(error.response?.data?.message || 'An error occurred. Please try again.');
