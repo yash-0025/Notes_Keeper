@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { FiLogOut } from 'react-icons/fi'
 
 const ProfileCard = ({ userInfo }) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -20,10 +20,11 @@ const ProfileCard = ({ userInfo }) => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="relative"
-            onHoverStart={() => setIsHovered(true)}
-            onHoverEnd={() => setIsHovered(false)}
+            onHoverStart={() => setIsMenuOpen(true)}
+            onHoverEnd={() => setIsMenuOpen(false)}
         >
-            <div className="flex items-center gap-4 p-2 rounded-full bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 cursor-pointer border border-gray-200">
+            <div className="flex items-center gap-4 p-2 rounded-full bg-white/50 backdrop-blur-sm hover:bg-white/80 transition-all duration-300 cursor-pointer border border-gray-200"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 <motion.div 
                     className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white font-bold shadow-md"
                     whileHover={{ scale: 1.1 }}
@@ -41,7 +42,7 @@ const ProfileCard = ({ userInfo }) => {
             </div>
 
             <AnimatePresence>
-                {isHovered && (
+                {isMenuOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}

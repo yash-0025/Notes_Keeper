@@ -141,7 +141,7 @@ const Home = () => {
             }
             
             setNotes(prevNotes => prevNotes.filter(n => n._id !== noteId));
-            handleShowToast("Note Deleted Successfully", "delete");
+            handleShowToast("Note Deleted Successfully", "success");
         } catch (error) {
             handleShowToast("Failed to delete note", "error");
         }

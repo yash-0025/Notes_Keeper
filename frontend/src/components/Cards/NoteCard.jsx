@@ -71,7 +71,7 @@ const NoteCard = ({
 
                 <div className="flex justify-between items-center pt-4 border-t border-gray-100">
                     <span className="text-xs text-gray-500 font-medium">{date}</span>
-                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="flex gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
                         <motion.button
                             whileHover={{ scale: 1.1, y: -2 }}
                             whileTap={{ scale: 0.9 }}
