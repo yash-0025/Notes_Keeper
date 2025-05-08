@@ -17,7 +17,7 @@ mongoose.connection.on('connected', () => {
 
 // Updated CORS configuration
 app.use(cors({
-    origin: 'http://localhost:5173', // Vite's default port
+    origin: process.env.FRONTEND_URL, // Vite's default port
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization']
