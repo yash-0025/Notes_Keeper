@@ -19,9 +19,11 @@ mongoose.connection.on('connected', () => {
 app.use(cors({
     origin: process.env.FRONTEND_URL, // Vite's default port
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+
 
 app.use("/api/user", userRoutes)
 app.use("/api/notes", notesRoutes);
