@@ -48,7 +48,8 @@ const Login = () => {
                 localStorage.setItem('token', response.data.token);
                 setEmail("");
                 setPassword("");
-                window.location.href = '/dashboard';
+                // window.location.href = '/dashboard';
+                navigate('/dashboard')
             }
             // Check if token is in response data as accessToken
             else if(response.data.accessToken) {
@@ -56,7 +57,8 @@ const Login = () => {
                 localStorage.setItem('token', response.data.accessToken);
                 setEmail("");
                 setPassword("");
-                window.location.href = '/dashboard';
+                // window.location.href = '/dashboard';
+                navigate('/dashboard')
             }
             // Check if token is in response headers
             else if(response.headers['authorization']) {
@@ -65,7 +67,8 @@ const Login = () => {
                 localStorage.setItem('token', token);
                 setEmail("");
                 setPassword("");
-                window.location.href = '/dashboard';
+                // window.location.href = '/dashboard';
+                navigate('/dashboard')
             }
             else {
                 console.error('No token found in response. Response structure:', response.data);
